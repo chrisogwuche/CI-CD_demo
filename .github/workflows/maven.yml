@@ -17,10 +17,13 @@ on:
 jobs:
   build:
 
-    runs-on: ${{matrix.os}}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+#     runs-on: ${{matrix.os}}
+#     strategy:
+#       matrix:
+#         os: [ubuntu-latest, windows-latest, macOS-latest]
+	
+	
+    runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v3
@@ -52,7 +55,5 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
-        context: .
         push: true
         tags: user/app:latest
-	
